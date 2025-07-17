@@ -1,0 +1,23 @@
+{
+  "name": "recipe-builder",
+  "version": "1.0.0",
+  "description": "A fullstack project with nodes and edges which allows users to build food recipes by following a specific order of handling ingredients.",
+  "homepage": "https://github.com/Cat4848/recipe-builder/blob/main/README.md",
+  "bugs": {
+    "url": "https://github.com/Cat4848/recipe-builder/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cat4848/recipe-builder"
+  },
+  "license": "ISC",
+  "author": "Catalin Pirtiu - catalinrol@gmail.com",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd client && npm run build:watch\" \"cd server && npm run start\""
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
