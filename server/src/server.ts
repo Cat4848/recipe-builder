@@ -20,6 +20,12 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get("/nodes-and-edges", async () => {});
+
+app.post("/nodes/new", async () => {});
+
+app.post("/edges/new", async () => {});
+
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () =>
