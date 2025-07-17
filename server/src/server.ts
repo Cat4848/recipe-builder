@@ -26,6 +26,10 @@ app.post("/nodes/new", async () => {});
 
 app.post("/edges/new", async () => {});
 
+app.get("*", async (req, res) => {
+  res.send("Not Found");
+});
+
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () =>
