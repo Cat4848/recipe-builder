@@ -1,6 +1,8 @@
 import express from "express";
 import passport from "passport";
 import session from "express-session";
+import nodesRouter from "./routes/nodes";
+import edgesRouter from "./routes/edges";
 
 const app = express();
 
@@ -20,11 +22,8 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/nodes-and-edges", async () => {});
-
-app.post("/nodes/new", async () => {});
-
-app.post("/edges/new", async () => {});
+app.use(nodesRouter);
+app.use(edgesRouter);
 
 app.get("*", async (req, res) => {
   res.send("Not Found");
