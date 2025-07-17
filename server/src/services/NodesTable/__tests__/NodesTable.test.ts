@@ -1,12 +1,15 @@
-import { getAllNodes } from "../actions";
+import NodesTable from "../NodesTable";
+import db from "../../../databases/MySqlDatabase";
 
-test("if nodes are retrieved correctly", async () => {
-  const result = await getAllNodes();
-  if (result instanceof Error) {
-    expect(true).toBe(false);
-    return;
+const nodesTable = new NodesTable(db);
+
+test("if the nodes are retrieved correctly", async () => {
+  expect.assertions(2);
+  const result = await nodesTable.getAll();
+  expect(result.success).toBe(true);
+  if (result.success) {
+    const edges = JSON.parse(result.data);
+    const firstNode = edges[0];
+    expect(firstNode).toHaveProperty("node_id");
   }
-  const nodes = JSON.parse(result);
-  const firstNode = nodes[0];
-  expect(firstNode).toHaveProperty("node_id");
 });
