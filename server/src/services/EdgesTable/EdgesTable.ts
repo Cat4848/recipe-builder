@@ -1,4 +1,4 @@
-import { Database } from "../../databases/types";
+import { Database } from "../../lib/types";
 
 export default class EdgesTable {
   private db: Database;

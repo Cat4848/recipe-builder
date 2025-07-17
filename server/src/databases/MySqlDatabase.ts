@@ -1,6 +1,6 @@
 import mysql from "mysql2/promise";
 import { ResultGenerator } from "../lib/ResultGenerator/ResultGenerator";
-import { Database } from "./types";
+import { Database } from "../lib/types";
 import "dotenv/config";
 
 class MySqlDatabase implements Database {
