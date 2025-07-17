@@ -18,8 +18,8 @@ const endOfBuildLogPlugin: Plugin = {
 async function watch() {
   const ctx = await esbuild.context({
     bundle: true,
-    entryPoints: ["src/views/login/index.tsx", "src/views/app/index.tsx"],
-    outdir: "../server/src/public/bundles",
+    entryPoints: ["src/index.tsx"],
+    outdir: "../server/src/public/js",
     outbase: "src/views",
     sourcemap: "linked",
     plugins: [endOfBuildLogPlugin]
