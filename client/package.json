@@ -1,0 +1,36 @@
+{
+  "name": "recipe-builder-client",
+  "version": "1.0.0",
+  "description": "Recipe Builder Software - client side",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cat4848/recipe-bulder"
+  },
+  "license": "ISC",
+  "author": "Catalin Pirtiu - catalinrol@gmail.com",
+  "scripts": {
+    "build:watch": "ts-node esbuild.config.ts",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "@xyflow/react": "^12.8.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^29.5.14",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "esbuild": "^0.24.2",
+    "jest": "^29.7.0",
+    "jest-config": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
