@@ -1,11 +1,7 @@
 import mysql from "mysql2/promise";
 import { ResultGenerator } from "../lib/ResultGenerator/ResultGenerator";
-import { Result } from "../lib/ResultGenerator/ResultGenerator";
+import { Database } from "./types";
 import "dotenv/config";
-
-export interface Database {
-  execute: <V = void>(sql: string, values?: V[]) => Promise<Result>;
-}
 
 class MySqlDatabase implements Database {
   private pool: mysql.Pool;
