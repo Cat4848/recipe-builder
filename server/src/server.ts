@@ -3,6 +3,7 @@ import passport from "passport";
 import session from "express-session";
 import nodesRouter from "./routes/nodes";
 import edgesRouter from "./routes/edges";
+import rootLayout from "./lib/layouts/rootLayout";
 
 const app = express();
 
@@ -24,6 +25,10 @@ app.use(express.json());
 
 app.use(nodesRouter);
 app.use(edgesRouter);
+
+app.get("/", (req, res) => {
+  res.send(rootLayout("/css/index.css", "/js/index.js"));
+});
 
 app.get("*", async (req, res) => {
   res.send("Not Found");
