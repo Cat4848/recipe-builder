@@ -20,7 +20,6 @@ async function watch() {
     bundle: true,
     entryPoints: ["src/index.tsx"],
     outdir: "../server/src/public/js",
-    outbase: "src/views",
     sourcemap: "linked",
     plugins: [endOfBuildLogPlugin]
   });
