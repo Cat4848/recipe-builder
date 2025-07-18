@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { EdgeRecord } from "../lib/types";
 import { toast } from "react-toastify";
+import { Edge } from "@xyflow/react";
 
 export const useEdges = (url: string) => {
-  const [edges, setEdges] = useState<EdgeRecord[]>([]);
+  const [edges, setEdges] = useState<Edge[]>([]);
   useEffect(() => {
     fetchEdges(url).then(
       (edges) => {
@@ -14,15 +15,15 @@ export const useEdges = (url: string) => {
       }
     );
   }, [url]);
-  return [edges, setEdges];
+  return { edges, setEdges };
 };
 
 const fetchEdges = (url: string) => {
-  return new Promise<EdgeRecord[]>(async (resolve, reject) => {
+  return new Promise<Edge[]>(async (resolve, reject) => {
     try {
       const res = await fetch(url);
       if (res.ok) {
-        const edges: EdgeRecord[] = await res.json();
+        const edges: Edge[] = await res.json();
         resolve(edges);
       } else {
         const errorMessage = await res.text();
