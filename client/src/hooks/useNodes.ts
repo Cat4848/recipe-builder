@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { NodeRecord } from "../lib/types";
 import { toast } from "react-toastify";
 import { Node } from "@xyflow/react";
 

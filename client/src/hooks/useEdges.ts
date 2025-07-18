@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { EdgeRecord } from "../lib/types";
 import { toast } from "react-toastify";
 import { Edge } from "@xyflow/react";
 
