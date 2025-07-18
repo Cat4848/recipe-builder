@@ -25,4 +25,10 @@ export default class NodesTable {
     ]);
     return result;
   };
+
+  getById = async (nodeId: number) => {
+    const sql = "SELECT * FROM nodes WHERE node_id = ?;";
+    const result = await this.db.execute(sql, [nodeId]);
+    return result;
+  };
 }
