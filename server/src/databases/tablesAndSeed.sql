@@ -28,13 +28,13 @@ INSERT INTO nodes (
 INSERT INTO nodes (
    position_x, position_y, type, content	
 ) VALUES (
-   100, 0, "input", "butter"
+   100, 100, "input", "butter"
 );
 
 INSERT INTO nodes (
    position_x, position_y, type, content	
 ) VALUES (
-   50, 100, "input", "egg"
+   0, 200, "input", "egg"
 );
 
 INSERT INTO edges (
