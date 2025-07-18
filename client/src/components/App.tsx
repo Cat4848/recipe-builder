@@ -34,8 +34,8 @@ export default function App() {
     <div style={{ height: "100%", width: "100%" }}>
       <ReactFlow
         nodeTypes={nodeTypes}
-        nodes={nodes}
-        edges={edges}
+        nodes={inNodes}
+        edges={inEdges}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
