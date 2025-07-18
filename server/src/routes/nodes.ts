@@ -4,6 +4,8 @@ import { newNodeValidation } from "../lib/validators/newNodeValidation/newNodeVa
 import { ValidationError } from "yup";
 import { useNodesTable } from "../services/hooks";
 import { ResultSetHeader } from "mysql2";
+import { NodeRecord } from "../lib/types";
+import { convertNodes } from "./lib/convertNodes";
 
 const nodesRouter = express.Router();
 
@@ -25,8 +27,6 @@ nodesRouter.get("/nodes", async (req, res) => {
     res.status(500).send(JSON.stringify(e));
     return;
   }
-  res.send(result);
-  return;
 });
 
 nodesRouter.post("/nodes/new", async (req, res) => {
