@@ -1,13 +1,12 @@
 import { ReactFlow, Controls, Background } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import "@xyflow/react/dist/base.css";
 import { useNodes } from "../hooks/useNodes";
 import { useEdges } from "../hooks/useEdges";
 
 const nodesUrl = "/nodes";
 const edgesUrl = "/edges";
 
-function App() {
+export default function App() {
   const { nodes, setNodes } = useNodes(nodesUrl);
   const { edges, setEdges } = useEdges(edgesUrl);
 
@@ -20,5 +19,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
