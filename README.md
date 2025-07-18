@@ -6,7 +6,7 @@
 - `cd client && npm install`
 - `cd ..`
 - `cd server && npm install`
-- `cd .. && npm run start` - this will start the app with hot reload both on the front end and backend
+- `cd .. && npm run start` - this will start the app with hot rebuild both on the front end and backend
 
 ## The app has the following features
 

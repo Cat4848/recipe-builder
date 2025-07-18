@@ -8,9 +8,21 @@ import { ResultSetHeader } from "mysql2";
 const nodesRouter = express.Router();
 
 nodesRouter.get("/nodes", async (req, res) => {
-  const result = await getAllNodes();
-  if (result instanceof Error) {
-    res.status(500).send(result.message);
+  try {
+    const result = await getAllNodes();
+    if (result instanceof Error) {
+      throw result;
+    }
+    const nodesFromDb: NodeRecord[] = JSON.parse(result);
+    const nodesForClient = convertNodes(nodesFromDb);
+    res.json(nodesForClient);
+    return;
+  } catch (e) {
+    if (e instanceof Error) {
+      res.status(500).send(e.message);
+      return;
+    }
+    res.status(500).send(JSON.stringify(e));
     return;
   }
   res.send(result);
