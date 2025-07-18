@@ -14,7 +14,7 @@ export const useEdges = (url: string) => {
       }
     );
   }, [url]);
-  return { edges, setEdges };
+  return edges;
 };
 
 const fetchEdges = (url: string) => {

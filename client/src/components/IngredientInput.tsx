@@ -3,10 +3,10 @@ import { Handle, Position } from "@xyflow/react";
 
 interface Props {
   id: string;
-  label: string;
+  data: {label: string};
 }
 
-export default function IngredientInput({ id, label }: Props) {
+export default function IngredientInput({ id, data }: Props) {
   const [ingredient, setIngredient] = useState("");
 
   const onChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
@@ -15,7 +15,7 @@ export default function IngredientInput({ id, label }: Props) {
 
   return (
     <div className="text-input">
-      <div>{label}</div>
+      <div>{data.label}</div>
       <input
         id={id}
         name="ingredient"

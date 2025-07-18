@@ -14,7 +14,7 @@ export const useNodes = (url: string) => {
       }
     );
   }, [url]);
-  return { nodes, setNodes };
+  return nodes;
 };
 
 const fetchNodes = (url: string) => {
