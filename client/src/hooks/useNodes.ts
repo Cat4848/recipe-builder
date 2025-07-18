@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { NodeRecord } from "../lib/types";
 import { toast } from "react-toastify";
+import { Node } from "@xyflow/react";
 
 export const useNodes = (url: string) => {
-  const [nodes, setNodes] = useState<NodeRecord[]>([]);
+  const [nodes, setNodes] = useState<Node[]>([]);
   useEffect(() => {
     fetchNodes(url).then(
       (nodes) => {
@@ -14,15 +15,15 @@ export const useNodes = (url: string) => {
       }
     );
   }, [url]);
-  return [nodes, setNodes];
+  return { nodes, setNodes };
 };
 
 const fetchNodes = (url: string) => {
-  return new Promise<NodeRecord[]>(async (resolve, reject) => {
+  return new Promise<Node[]>(async (resolve, reject) => {
     try {
       const res = await fetch(url);
       if (res.ok) {
-        const nodes: NodeRecord[] = await res.json();
+        const nodes: Node[] = await res.json();
         resolve(nodes);
       } else {
         const errorMessage = await res.text();

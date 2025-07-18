@@ -4,19 +4,6 @@ import "@xyflow/react/dist/base.css";
 import { useNodes } from "../hooks/useNodes";
 import { useEdges } from "../hooks/useEdges";
 
-const initialNodes = [
-  {
-    id: "n1",
-    data: { label: "Node 1" },
-    position: { x: 0, y: 0 },
-    type: "input"
-  },
-  {
-    id: "n2",
-    data: { label: "Node 2" },
-    position: { x: 100, y: 100 }
-  }
-];
 const initialEdges = [
   {
     id: "n1-n2",
@@ -30,12 +17,12 @@ const nodesUrl = "/nodes";
 const edgesUrl = "/edges";
 
 function App() {
-  const [nodes, setNodes] = useNodes(nodesUrl);
+  const { nodes, setNodes } = useNodes(nodesUrl);
   const [edges, setEdges] = useEdges(edgesUrl);
-
+  console.log("nodes", nodes);
   return (
     <div style={{ height: "100%", width: "100%" }}>
-      <ReactFlow nodes={nodes} edges={edges}>
+      <ReactFlow nodes={nodes} edges={initialEdges}>
         <Background />
         <Controls />
       </ReactFlow>
