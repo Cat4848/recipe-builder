@@ -67,3 +67,18 @@ test("if it fails with wrong type data type", async () => {
     expect(e).toBeInstanceOf(ValidationError);
   }
 });
+
+test("if it fails with wrong content data type", async () => {
+  expect.assertions(1);
+  const reqBody = {
+    position_x: 0,
+    position_y: 100,
+    type: "input",
+    content: 5
+  };
+  try {
+    await newNodeValidation(reqBody);
+  } catch (e) {
+    expect(e).toBeInstanceOf(ValidationError);
+  }
+});
