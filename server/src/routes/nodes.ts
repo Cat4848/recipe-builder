@@ -20,14 +20,17 @@ nodesRouter.get("/nodes", async (req, res) => {
 nodesRouter.post("/nodes/new", async (req, res) => {
   try {
     const newNode = await newNodeValidation(req.body);
+
     const nodesTable = useNodesTable();
     const result = await nodesTable.new(newNode);
     if (result.success) {
       const { insertId }: ResultSetHeader = JSON.parse(result.data);
-      // td: get node by id and send it to front end
-    } else {
-      throw result.error;
-    }
+      const newNodeResult = await nodesTable.getById(insertId);
+      if (newNodeResult.success) {
+        res.send(newNodeResult.data);
+        return;
+      } else throw newNodeResult.error;
+    } else throw result.error;
   } catch (e) {
     if (e instanceof ValidationError) {
       res.status(400).send(e.errors[0]);
@@ -38,6 +41,7 @@ nodesRouter.post("/nodes/new", async (req, res) => {
       return;
     }
     res.status(500).send(e);
+    return;
   }
 });
 
