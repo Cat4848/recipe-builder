@@ -11,6 +11,7 @@ export interface NodeRecord {
   type: string;
   content: string;
 }
+export type SemiNodeRecord = Omit<NodeRecord, "node_id">;
 
 export interface EdgeRecord {
   edge_id: number;
